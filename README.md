@@ -32,5 +32,6 @@ Date | Lecture | Task | Person
 18.10.2019 | 12:00-16:00 | Set up IDE and build environment & Github | Pinterits & Wimmer
 07.11.2019 | 16:00-20:00 | Extracting frames of videos | Pinterits
 08.11.2019 | 18:00-22:00 | Labeling frames from videos | Wimmer
+08.11.2019 | 22:00-23:00 | Setting up readme Github | Wimmer
 
 
