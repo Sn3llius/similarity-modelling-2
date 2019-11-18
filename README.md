@@ -20,3 +20,15 @@
 * Nov 19, 2019, 8am - mandatory intermediate hand-in (a.k.a. "prüfungsrelevante Leistung")
 * Jan 21, 2020, 8am - final hand-in
 
+
+### Timesheet of Work
+
+Date | Lecture | Task | Person
+------------ | -------------  | ------------- | -------------
+08.10.2019 | 09:00-12:00 | Attended lecture on SIM 1 | Pinterits & Wimmer
+11.10.2019 | 09:00-12:00 | Attended lecture on SIM 1 | Pinterits
+17.10.2019 | 13:00-16:00 | Attended lecture on SIM 2 | Pinterits & Wimmer
+18.10.2019 | 09:00-12:00 | Attended lecture on SIM 2 | Pinterits & Wimmer
+18.10.2019 | 12:00-16:00 | Set up IDE and build environment & Github | Pinterits & Wimmer
+
+
