@@ -1,7 +1,6 @@
 # %%
 import av
 from pathlib import Path
-import re
 
 # %%
 root_path = Path().parent
