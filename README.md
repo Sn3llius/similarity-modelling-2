@@ -33,5 +33,8 @@ Date | Lecture | Task | Person
 07.11.2019 | 16:00-20:00 | Extracting frames of videos | Pinterits
 08.11.2019 | 18:00-22:00 | Labeling frames from videos | Wimmer
 08.11.2019 | 22:00-23:00 | Setting up readme Github | Wimmer
+28.12.2019 | 08:00-22:00 | Create a Pytorch Computer Vision Model | Wimmer
+28.12.2019 | 22:00-06:00 | Train + Validate Model | Wimmer
+29.12.2019 | 08:00-16:00 | Test Model + ROC + CM | Wimmer
 
 
