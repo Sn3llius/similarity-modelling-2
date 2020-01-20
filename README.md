@@ -77,13 +77,14 @@ Information about the different classes in the torch.nn module can be found here
 
 #### ROC Curve on test set
 
+![ROC Curve](/src/Computer Vision/plots/ROC.png)
+
 #### Classification Report
 
-  | precision | recall | f1-score | support
+x | precision | recall | f1-score | support
 ------------ | -------------  | ------------- | ------------- | -------------
 kirmet | 0.93 | 0.77 | 0.84 | 148
 no kirmet | 0.90 | 0.97 | 0.93 | 318
-
 accuracy |   |   | 0.91 | 466
 macro avg | 0.91 | 0.87 | 0.89 | 466
 weighted avg | 0.91 | 0.91 | 0.91 | 466
