@@ -77,21 +77,26 @@ Information about the different classes in the torch.nn module can be found here
 
 ![Training_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/Trainingcurve.png)
 
+As shown in the figure, the validation loss is increasing after epoch 6-7. Therefore, we decidet to evaluate our model from epoch 6 and 7. The following part deals with model epoch 7, because it achieved the highest accuracy of appr. 97% (1% better then model epoch 6). 
+
 #### ROC Curve on test set
 
-![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ROC.png)
+![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ROC_try2.png)
 
 #### Classification Report
 
 x | precision | recall | f1-score | support
 ------------ | -------------  | ------------- | ------------- | -------------
-kirmet | 0.93 | 0.77 | 0.84 | 148
-no kirmet | 0.90 | 0.97 | 0.93 | 318
-accuracy |   |   | 0.91 | 466
-macro avg | 0.91 | 0.87 | 0.89 | 466
-weighted avg | 0.91 | 0.91 | 0.91 | 466
+kirmet | 0.97 | 0.91 | 0.94 | 141
+no kirmet | 0.96 | 0.99 | 0.98 | 325
+accuracy |   |   | 0.97 | 466
+macro avg | 0.97 | 0.95 | 0.96 | 466
+weighted avg | 0.97 | 0.97 | 0.97 | 466
+
 
 #### Confusion Matrix
+
+![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ConfusionMatrix_try2.png)
 
 ### Transfer Learning
 
