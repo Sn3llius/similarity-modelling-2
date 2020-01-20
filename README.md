@@ -81,8 +81,6 @@ Information about the different classes in the torch.nn module can be found here
 
 ![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ROC.png)
 
-### Transfer Learning
-
 #### Classification Report
 
 x | precision | recall | f1-score | support
