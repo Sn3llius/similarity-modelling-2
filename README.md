@@ -77,7 +77,7 @@ Information about the different classes in the torch.nn module can be found here
 
 #### ROC Curve on test set
 
-![ROC Curve](/src/Computer Vision/plots/ROC.png)
+![ROC Curve](similarity-modelling-2/src/Computer Vision/plots/ROC.png)
 
 #### Classification Report
 
