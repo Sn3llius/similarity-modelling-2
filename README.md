@@ -61,7 +61,7 @@ Similar to the image below:
 
 Our convolutional layers should extract features from the images and the fully connected layers are used to classify the images.
 
-The specifications we use in this tutorial are as follows:
+The specifications we use in here are as follows:
 * Conv1: out_channels=15, kernel_size=3, padding=1, stride=1 (image size stays the same with this config)
 * Conv2: out_channels=30, kernel_size=3, padding=1, stride=1 (image size stays the same with this config)
 * FullyConnected: out_features=100
