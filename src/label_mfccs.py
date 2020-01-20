@@ -1,3 +1,17 @@
+"""
+Copies the class labels from visual frames to MFCC features.
+
+This script expects that
+  - the video frames have been extracted and classified. One class per directory
+  - the MFCC features have been extracted and pickled
+
+For each instance the script locates the visual frame's corresponding JPEG
+image. Depending on the directory it is in ("kermit" / "non_kermit") the correct
+class is assigned.
+
+Results are pickled and stored in the cache directory.
+"""
+
 # %%
 from pathlib import Path
 import numpy as np

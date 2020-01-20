@@ -1,3 +1,13 @@
+"""
+Extracts audio features from the videos files.
+
+First extracts the entire audio stream from the video, then uses librosa to
+calculate MFCC values. The window size is selected to coincide with the duration
+between visual frames.
+
+Results are pickled and written to the cache directory.
+"""
+
 # %%
 import av
 from pathlib import Path

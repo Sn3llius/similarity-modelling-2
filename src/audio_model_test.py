@@ -1,3 +1,7 @@
+"""
+Testing ground for different models. The final model is in `audio_model.py`.
+"""
+
 # %% Imports
 import numpy as np
 import pandas as pd
