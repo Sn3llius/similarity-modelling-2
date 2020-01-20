@@ -75,10 +75,11 @@ Information about the different classes in the torch.nn module can be found here
 
 #### Plotting the Training Curve
 
+![Training_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/Trainingcurve.png)
+
 #### ROC Curve on test set
 
-![ROC Curve](similarity-modelling-2/src/Computer Vision/plots/ROC.png)
-Format: ![Alt Text](url)
+![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ROC.png)
 
 #### Classification Report
 
