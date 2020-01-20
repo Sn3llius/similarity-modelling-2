@@ -36,5 +36,7 @@ Date | Lecture | Task | Person
 28.12.2019 | 08:00-22:00 | Create a Pytorch Computer Vision Model | Wimmer
 28.12.2019 | 22:00-06:00 | Train + Validate Model | Wimmer
 29.12.2019 | 08:00-16:00 | Test Model + ROC + CM | Wimmer
+18.01.2020 | 08:00-19:00 | Create a Pytorch Transfer Learning Model + Test Model + ROC + CM | Wimmer
+19.01.2020 | 08:00-19:00 | Create with Pytorch Data Augmentation  + Test Model + ROC + CMTest Model + ROC + CM | Wimmer
 
 
