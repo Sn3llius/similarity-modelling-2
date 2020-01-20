@@ -81,6 +81,8 @@ Information about the different classes in the torch.nn module can be found here
 
 ![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ROC.png)
 
+### Transfer Learning
+
 #### Classification Report
 
 x | precision | recall | f1-score | support
@@ -93,4 +95,13 @@ weighted avg | 0.91 | 0.91 | 0.91 | 466
 
 #### Confusion Matrix
 
-#### 
+### Transfer Learning
+
+![Training_Curve](https://www.researchgate.net/profile/Clifford_Yang/publication/325137356/figure/fig2/AS:670371271413777@1536840374533/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg)
+[by Clifford K. Yang](https://www.researchgate.net/figure/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means_fig2_325137356)
+
+The Output above shows the model architecture of the VGG-19 Model. We can see that the layers are groups in 3 Groups. The first group consists of Convolutional and Pooling Layers and is used to extract features (like the name suggests). The second group is a single Average Pooling Layer. The thrid and last layer is used to classify the images in the respective groups.
+
+There are 3 fully connected Layers whereas the last the output layer is. We can see, that the last layer has 1000 Out-Features - this means that this model was trained to classify 1000 different classes. However, over task is only to classify between kirmet and not kirmet.
+
+Therefore we have to change the last layer to only output 2 different out_features. This is done by getting the in_features (we could also just read them from above) and then changing the last layer with a new layer which has the same in_features but only out 2 out_features.
