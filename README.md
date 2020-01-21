@@ -1,8 +1,8 @@
 # similarity-modelling-2
 
 ## Students
-Jakob Pinterits | 01327264
-
+Jakob Pinterits | 01327264  
+Christoph Wimmer | 01130693
 
 ## Timesheet of Work
 
@@ -89,7 +89,7 @@ weighted avg | 0.97 | 0.97 | 0.97 | 466
 
 ### Transfer Learning
 
-![Training_Curve](https://www.researchgate.net/profile/Clifford_Yang/publication/325137356/figure/fig2/AS:670371271413777@1536840374533/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg)
+![VGG19](https://www.researchgate.net/profile/Clifford_Yang/publication/325137356/figure/fig2/AS:670371271413777@1536840374533/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means.jpg)  
 [by Clifford K. Yang](https://www.researchgate.net/figure/llustration-of-the-network-architecture-of-VGG-19-model-conv-means-convolution-FC-means_fig2_325137356)
 
 The Output above shows the model architecture of the VGG-19 Model. We can see that the layers are groups in 3 Groups. The first group consists of Convolutional and Pooling Layers and is used to extract features (like the name suggests). The second group is a single Average Pooling Layer. The thrid and last layer is used to classify the images in the respective groups.
@@ -97,6 +97,29 @@ The Output above shows the model architecture of the VGG-19 Model. We can see th
 There are 3 fully connected Layers whereas the last the output layer is. We can see, that the last layer has 1000 Out-Features - this means that this model was trained to classify 1000 different classes. However, over task is only to classify between kirmet and not kirmet.
 
 Therefore we have to change the last layer to only output 2 different out_features. This is done by getting the in_features (we could also just read them from above) and then changing the last layer with a new layer which has the same in_features but only out 2 out_features.
+#### Plotting the Training Curve
+
+![Training_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/Trainingcurve_TL.png)
+
+As shown in the figure, the validation loss is increasing after epoch 2-3. Therefore, we decidet to evaluate our model from epoch 2 and 3. The following part deals with model epoch 3, because it achieved the highest test accuracy of appr. 93% (2% better then model epoch 2). 
+
+#### ROC Curve on test set
+
+![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ROC_TL.png)
+
+#### Classification Report
+
+x | precision | recall | f1-score | support
+------------ | -------------  | ------------- | ------------- | -------------
+kirmet | 0.87 | 0.92 | 0.89 | 141
+no kirmet | 0.97 | 0.94 | 0.95 | 325
+accuracy |   |   | 0.93 | 466
+macro avg | 0.92 | 0.93 | 0.92 | 466
+weighted avg | 0.94 | 0.93 | 0.93 | 466
+
+#### Confusion Matrix
+
+![ROC_Curve](https://github.com/Sn3llius/similarity-modelling-2/blob/master/src/Computer%20Vision/plots/ConfusionMatrix_TL.png)
 
 
 ## Audio classification
