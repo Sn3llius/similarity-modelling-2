@@ -1,10 +1,10 @@
-
 """
 This script splits the video files into individual frames and stores them as
 JPEG images. The script doesn't perform any classification or other ML task. The
 frames are stored in the cache directory and can then be manually split into
 classes.
 """
+
 # %%
 import av
 from pathlib import Path

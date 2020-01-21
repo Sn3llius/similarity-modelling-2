@@ -1,5 +1,9 @@
 """
-Contains the final model used to identify kermit. This is an ensemble of the best model from `audio_model_test.py` & the visual model.
+Contains the final model used to identify kermit. This is an ensemble of the
+best model from `audio_model_test.py` & the visual model.
+
+The results from the visual model are loaded from disk. Audio predictions are
+made in this file.
 """
 
 # %% Imports
@@ -11,13 +15,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
-from sklearn.metrics import recall_score, accuracy_score, f1_score
+from sklearn.metrics import recall_score, accuracy_score, f1_score, roc_curve
 from imblearn.under_sampling import RandomUnderSampler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.wrappers.scikit_learn import KerasClassifier
+
 
 
 # %% Load the data
@@ -53,7 +58,7 @@ train_x, test_x, train_y, test_y = train_test_split(
 )
 
 # %% Create the audio model
-def get_audio_model():
+def make_audio_model():
     model = Pipeline(
         [
             [
@@ -67,48 +72,46 @@ def get_audio_model():
         ]
     )
 
+    model.fit(train_x, train_y)
     return model
-
-# %% Create the visual model
-def get_visual_model():
-    raise NotImplementedError
 
 
 # %% Ensemble
-class FullModel:
-    def __init__(self):
-        self.audio_model_ = get_audio_model()
-        self.visual_model_ = get_visual_model()
-
-    def fit(self, x, y):
-        self.audio_model_.fit(x, y)
-        self.visual_model_.fit(x, y)
-
-    def predict_proba(self, x):
-        proba_audio = self.audio_model_.predict_proba(x)[:, 0]
-        proba_vis = self.visual_model_.predict_proba(x)[:, 0]
-
-        a = 0.1
-        proba = proba_audio * a + proba_vis * (1-a)
-
-        return proba
-
-    def predict(self, x):
-        proba = self.predict_proba(x)
-        return proba < 0.5
-
+def ensemble_proba(preds_a, preds_b, fac):
+    return preds_a * (1-fac) + preds_b * fac
 
 # Evaluate
-model = FullModel()
+gt_y = np.load(data_path / 'predictions_nn' / 'y_true.npy')[:-8]
 
-model.fit(train_x, train_y)
-pred_y = model.predict(test_x)
+preds_visual = np.load(data_path / 'predictions_nn' / 'y_pred.npy')[:-8]
+
+audio_model = make_audio_model()
+preds_audio = audio_model.predict_proba(full_x)[:, 0]
+
+assert preds_visual.shape == preds_audio.shape, (preds_visual.shape, preds_audio.shape)
+
+pred_y_proba = ensemble_proba(preds_visual, preds_audio, 0.1)
+pred_y = pred_y_proba > 0.5
+
+print(f'Accuracy: {accuracy_score(gt_y, pred_y)}')
+print(f'Recall:   {recall_score(gt_y, pred_y)}')
+print(f'F1:       {f1_score(gt_y, pred_y)}')
 
 
-print(f'Accuracy: {accuracy_score(test_y, pred_y)}')
-print(f'Recall:   {recall_score(test_y, pred_y)}')
-print(f'F1:       {f1_score(test_y, pred_y)}')
+# %%
+import matplotlib.pyplot as plt
 
+def plot_roc_curve(fper, tper):
+    plt.plot(fper, tper, color='orange', label='ROC')
+    plt.plot([0, 1], [0, 1], color='darkblue', linestyle='--')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Receiver Operating Characteristic (ROC) Curve')
+    plt.legend()
+    plt.show()
+
+fper, tper, thresholds = roc_curve(gt_y, pred_y_proba)
+plot_roc_curve(fper, tper)
 
 
 # %%
